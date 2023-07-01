@@ -4,14 +4,14 @@ pipeline {
     environment {
         POSTGRES_DB = credentials('POSTGRES_DB')
         POSTGRES_USER = credentials('POSTGRES_USER')
-        POSTGRES_PASSWORD = credentials('POSTGRES_PASSWORD') 
+        POSTGRES_PASSWORD = credentials('POSTGRES_PASSWORD')  // need to configure as secret text in jenkins credentials
     }
 
     stages {
         stage('Set environment variables') {
             steps {
                 sh 'echo $POSTGRES_DB'
-                sh 'env | sort'
+             
             }
         }
 
