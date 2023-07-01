@@ -8,7 +8,9 @@ services:
   db:
     image: postgres:latest
     container_name: db
-    env_file:
-      - ./env_variables.env
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       - ./data:/var/lib/postgresql/data
