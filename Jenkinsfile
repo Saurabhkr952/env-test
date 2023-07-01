@@ -19,6 +19,7 @@ pipeline {
             steps {
                 // Run the docker-compose command with environment variables
                 sh 'docker-compose up -d'
+                sh 'env | sort'
             }
         }
     }
