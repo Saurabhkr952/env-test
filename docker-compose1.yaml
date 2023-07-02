@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  container1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: container1
+    environment:
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_SCHEMA=${DB_SCHEMA}
+      - BASE_URL=${BASE_URL}
+    command: [your_command1]
+    volumes:
+      - ./data:/data
+
+  container2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: container2
+    environment:
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_SCHEMA=${DB_SCHEMA}
+      - BASE_URL=${BASE_URL}
+    command: [your_command2]
+    volumes:
+      - ./data:/data
