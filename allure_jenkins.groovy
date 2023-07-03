@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        // Set up your desired agent
+        // volume and container name needs to modification
     }
     
     stages {
@@ -13,12 +13,8 @@ pipeline {
         
         stage('Generate Allure Report') {
             steps {
-                // Run the tests and generate the Allure results
-                sh 'docker-compose run -v ./allure-results:/app/allure-results container1 pytest <path> -s --alluredir=/app/allure-results'
-                sh 'docker-compose run -v ./allure-results:/app/allure-results container2 pytest <path> -s --alluredir=/app/allure-results'
-                
                 // Generate the HTML report using the Allure command-line tool inside a container
-                sh 'docker-compose run -v ./allure-results:/app/allure-results allure generate /app/allure-results -o /app/allure-report'
+                sh 'docker-compose run allure generate /app/allure-results -o /app/allure-report'
             }
         }
         
@@ -33,6 +29,4 @@ pipeline {
             }
         }
     }
-}
 
-// volume and container name should be modified
