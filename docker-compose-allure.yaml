@@ -4,7 +4,7 @@
       dockerfile: Dockerfile1
     volumes:
       - ./allure-results:/allure-results
-    command: ["pytest", "tests/test1.py", "-s", "--junitxml=/allure-results/result1.xml"]
+    command: ["pytest", "tests/test1.py", "-s", "--junitxml=/allure-results/result1.xml"] // --alluredir=/allure-results/pytest2
 
   pytest2:
     build:
