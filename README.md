@@ -1,4 +1,3 @@
-
 # Kubernetes RBAC
 
 ## Concepts
@@ -14,16 +13,16 @@ When we create users/groups in Kubernetes, it is not aware of any concepts like 
 
 ```mermaid
 graph TD
-    A[Kubernetes Certificate Authority (CA)] -->|Signs| B[Certificate Signing Request (CSR)]
-    B --> C[Certificate]
-    C -->|Stored in| D[Private Key]
+    A(Kubernetes Certificate Authority (CA)) -->|Signs| B(Certificate Signing Request (CSR))
+    B --> C(Certificate)
+    C -->|Stored in| D(Private Key)
     
-    subgraph User_Setup
-        john[John] --> john_tag[Private Key]
-        john --> john_csr[CSR]
-        john_csr -->|Signed by CA| john_cert[Certificate]
+    subgraph User Setup
+        john(John) --> john_tag(Private Key)
+        john --> john_csr(CSR)
+        john_csr -->|Signed by CA| john_cert(Certificate)
     end
     
-    subgraph Kubernetes_Config
-        kubeconfig[/etc/kubernetes/pki]
+    subgraph Kubernetes Config
+        kubeconfig(/etc/kubernetes/pki)
     end
