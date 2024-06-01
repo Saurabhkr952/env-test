@@ -1,4 +1,4 @@
-# Kubernetes RBAC
+# RBAC
 
 ## Concepts
 - **Role**
@@ -9,7 +9,7 @@
 ## Explanation
 When we create users/groups in Kubernetes, it is not aware of any concepts like users/groups. It only cares about certificates during the authentication. If we provide the proper certificate, you will be allowed access into the cluster.
 
-## User Setup
+## Diagram
 
 ```mermaid
 graph TD
@@ -38,32 +38,3 @@ graph TD
     subgraph Kubernetes Config
         kubeconfig[/etc/kubernetes/pki]
     end
-
-
-
-graph TD
-    A[Master Node]
-
-    subgraph Namespaces
-        ns1[default]
-        ns2[finance]
-        ns3[kube-system]
-    end
-
-    role[Role]
-    rolebinding[Role Binding]
-    finance[finance]
-
-    group[Group]
-
-    john[John]
-    thomas[Thomas]
-    chris[Chris]
-
-    role --> rolebinding
-    rolebinding --> finance
-    finance --> group
-
-    group --> john
-    group --> thomas
-    group --> chris
